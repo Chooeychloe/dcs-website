@@ -69,7 +69,7 @@ export default function SiteFooter() {
 
           <div className="mt-4">
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/CvSUBacoorDCS"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"

@@ -11,7 +11,7 @@ export default function HeroSection() {
           pointer-events-none absolute inset-0
           -z-10
           bg-[linear-gradient(to_right,hsl(var(--border)/0.18)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.18)_1px,transparent_1px)]
-          bg-[size:48px_48px]
+          bg-size-[48px_48px]
         "
       />
 
@@ -20,7 +20,7 @@ export default function HeroSection() {
         className="
           pointer-events-none absolute left-1/2 top-0
           -z-10
-          h-[600px] w-[900px]
+          h-150 w-225
           -translate-x-1/2
           rounded-full
           bg-primary/10
@@ -69,24 +69,24 @@ export default function HeroSection() {
             {/* Actions */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
 
-           
-                <Link to="/programs">
-                  Explore Our Programs
 
-                  <ArrowRight
-                    className="
+              <Link to="/programs">
+                Explore Our Programs
+
+                <ArrowRight
+                  className="
                       ml-2 h-4 w-4
                       transition-transform
                       group-hover:translate-x-1
                     "
-                  />
-                </Link>
+                />
+              </Link>
 
-           
-                <Link to="/faculty">
-                  Meet Our Faculty
-                </Link>
-          
+
+              <Link to="/faculty">
+                Meet Our Faculty
+              </Link>
+
 
             </div>
 
@@ -134,7 +134,7 @@ export default function HeroSection() {
                   absolute inset-0
                   opacity-50
                   bg-[linear-gradient(to_right,hsl(var(--primary)/0.08)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.08)_1px,transparent_1px)]
-                  bg-[size:32px_32px]
+                  bg-size-[32px_32px]
                 "
               />
 
@@ -147,24 +147,11 @@ export default function HeroSection() {
                   <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl" />
 
                   {/* Logo */}
-                  <div
-                    className="
-                      relative
-                      flex h-32 w-32
-                      items-center justify-center
-                      rounded-3xl
-                      border
-                      border-primary/30
-                      bg-primary/10
-                      text-3xl
-                      font-bold
-                      tracking-tight
-                      text-primary
-                      shadow-xl
-                    "
-                  >
-                    DCS
-                  </div>
+                  <img
+                    src="/dcs-logo.svg"
+                    alt="Department of Computer Studies"
+                    className="h-auto w-auto"
+                  />
 
                 </div>
               </div>

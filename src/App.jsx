@@ -10,6 +10,7 @@ import FacultyProfile from "@/pages/FacultyProfile";
 import SiteLayout from "@/components/layout/SiteLayout";
 import Faculty from "./pages/Faculty";
 import Programs from "./pages/Programs";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
             path="/"
             element={<Home />}
           />
-
+          <Route path="/about" element={<About />} />
           <Route
             path="/faculty/:id"
             element={<FacultyProfile />}
@@ -31,9 +32,9 @@ function App() {
             element={<Faculty />}
           />
           <Route
-  path="/programs"
-  element={<Programs />}
-/>
+            path="/programs"
+            element={<Programs />}
+          />
         </Routes>
       </SiteLayout>
     </BrowserRouter>

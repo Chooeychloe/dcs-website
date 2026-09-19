@@ -2,9 +2,9 @@
 
 export const departmentChair = {
   id: "chair",
-  name: "Department Chair",
+  name: "Jovelyn D. Ocampo, MIT",
   position: "Department Chair",
-  image: "/faculty/chair.jpg",
+  image: "/faculty/ocampo.jpg",
 
   bio:
     "A dedicated educator and academic leader committed to advancing computer education, research, and student development.",
@@ -17,7 +17,7 @@ export const departmentChair = {
   ],
 
   education: [
-    "Doctor of Philosophy in Information Technology",
+    "Doctor in Information Technology",
     "Master of Information Technology",
   ],
 
@@ -38,7 +38,7 @@ export const departmentChair = {
 export const coordinators = [
   {
     id: "cs-coordinator",
-    name: "CS Coordinator",
+    name: "Ely Rose Panganiban-Briones, MIT",
     position: "CS Coordinator",
     program: "Computer Science",
     image: "/faculty/cs-coordinator.jpg",
@@ -70,10 +70,10 @@ export const coordinators = [
 
   {
     id: "bsit-coordinator",
-    name: "BSIT Coordinator",
+    name: "Donnalyn B. Montallana, MIT",
     position: "BSIT Coordinator",
     program: "Information Technology",
-    image: "/faculty/bsit-coordinator.jpg",
+    image: "/faculty/montallana.jpg",
 
     bio:
       "Responsible for coordinating the BSIT program and supporting students and faculty in academic and program-related activities.",
@@ -102,10 +102,10 @@ export const coordinators = [
 
   {
     id: "osas-coordinator",
-    name: "OSAS Coordinator",
+    name: "Steffanie M. Bato, MIT",
     position: "OSAS Coordinator",
     program: "Office of Student Affairs and Services",
-    image: "/faculty/osas-coordinator.jpg",
+    image: "/faculty/bato.png",
 
     bio:
       "Supports student development initiatives and coordinates activities related to student affairs and services.",
@@ -132,9 +132,9 @@ export const coordinators = [
 export const facultyMembers = [
   {
     id: "faculty-1",
-    name: "Faculty Member 1",
+    name: "Bryan Ablaza",
     position: "Instructor I",
-    image: "/faculty/faculty-1.jpg",
+    image: "/faculty/ablaza.png",
 
     bio:
       "A computer studies educator focused on developing students' technical and problem-solving skills.",
@@ -163,9 +163,9 @@ export const facultyMembers = [
 
   {
     id: "faculty-2",
-    name: "Faculty Member 2",
+    name: "Mikaela Arciaga",
     position: "Instructor I",
-    image: "/faculty/faculty-2.jpg",
+    image: "/faculty/arciaga.JPG",
 
     bio:
       "A computer studies educator specializing in programming and software development.",
@@ -194,9 +194,9 @@ export const facultyMembers = [
 
   {
     id: "faculty-3",
-    name: "Faculty Member 3",
+    name: "John Nerick Batuigas",
     position: "Instructor I",
-    image: "/faculty/faculty-3.jpg",
+    image: "/faculty/batuigas.jpg",
 
     bio:
       "A computer studies educator with interests in networking and information security.",
@@ -225,9 +225,9 @@ export const facultyMembers = [
 
   {
     id: "faculty-4",
-    name: "Faculty Member 4",
+    name: "Stephen Bacolor",
     position: "Instructor I",
-    image: "/faculty/faculty-4.jpg",
+    image: "/faculty/bacolor.JPG",
 
     bio:
       "A computer studies educator interested in data science and emerging technologies.",

@@ -84,7 +84,7 @@ export default function Programs() {
             pointer-events-none absolute inset-0
             opacity-40
             bg-[linear-gradient(to_right,hsl(var(--border)/0.18)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.18)_1px,transparent_1px)]
-            bg-[size:48px_48px]
+            bg-size-[48px_48px]
           "
         />
 
@@ -93,7 +93,7 @@ export default function Programs() {
           className="
             pointer-events-none absolute
             left-1/2 top-0
-            h-[500px] w-[800px]
+            h-125 w-200
             -translate-x-1/2
             rounded-full
             bg-primary/10
@@ -287,7 +287,7 @@ function ProgramCard({ program }) {
           transition-opacity duration-500
           group-hover:opacity-100
           bg-[linear-gradient(to_right,hsl(var(--primary)/0.04)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.04)_1px,transparent_1px)]
-          bg-[size:24px_24px]
+          bg-size-[24px_24px]
         "
       />
 

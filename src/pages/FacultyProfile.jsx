@@ -79,7 +79,7 @@ export default function FacultyProfile() {
           <div className="grid items-center gap-10 md:grid-cols-[260px_1fr]">
 
             {/* Photo */}
-            <div className="mx-auto w-full max-w-[260px]">
+            <div className="mx-auto w-full max-w-65">
               <div className="aspect-square overflow-hidden rounded-3xl border bg-muted shadow-xl">
                 <img
                   src={faculty.image}
