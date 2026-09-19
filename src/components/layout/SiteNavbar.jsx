@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+
 import ThemeToggle from "./ThemeToggle";
 import { Button } from "@/components/ui/button";
 
@@ -48,14 +49,12 @@ export default function SiteNavbar() {
       "
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center px-6">
-
         {/* Brand */}
         <Link
           to="/"
           className="group flex items-center gap-3"
           onClick={() => setMobileOpen(false)}
         >
-          {/* Logo */}
           <img
             src="/dcs-logo.svg"
             alt="Department of Computer Studies"
@@ -84,33 +83,42 @@ export default function SiteNavbar() {
                   rounded-lg px-3 py-2
                   text-sm font-medium
                   transition-colors
-                  ${isActive
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                }
+                  ${
+                    isActive
+                      ? "bg-primary/10 text-primary"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  }
                 `
               }
             >
               {item.label}
             </NavLink>
           ))}
-        </nav>
-        <ThemeToggle />
 
-        {/* Mobile Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="ml-auto lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle navigation"
-        >
-          {mobileOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
-        </Button>
+          {/* Desktop Theme Toggle */}
+          <div className="ml-2 border-l border-border/60 pl-3">
+            <ThemeToggle />
+          </div>
+        </nav>
+
+        {/* Mobile Controls */}
+        <div className="ml-auto flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle navigation"
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -127,10 +135,11 @@ export default function SiteNavbar() {
                     block rounded-lg px-4 py-3
                     text-sm font-medium
                     transition-colors
-                    ${isActive
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                  }
+                    ${
+                      isActive
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                    }
                   `
                 }
               >
@@ -138,10 +147,9 @@ export default function SiteNavbar() {
               </NavLink>
             ))}
           </nav>
-          <ThemeToggle />
-
         </div>
       )}
     </header>
   );
 }
+

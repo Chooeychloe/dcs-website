@@ -104,7 +104,7 @@ export default function HeroSection() {
               />
 
               <Stat
-                value="—"
+                value="1000+"
                 label="Students"
               />
 
