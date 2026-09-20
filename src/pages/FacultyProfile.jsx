@@ -4,6 +4,8 @@ import {
   GraduationCap,
   BookOpen,
   FlaskConical,
+  BriefcaseBusiness,
+  FileText,
 } from "lucide-react";
 
 import { Link, useParams } from "react-router-dom";
@@ -15,6 +17,10 @@ import {
   coordinators,
   facultyMembers,
 } from "@/data/faculty";
+
+import { getProfessionalDevelopment } from "@/data/professionalDevelopment";
+import { getFacultyResearch} from "@/data/facultuResearch";
+import { getPublications } from "@/data/publications";
 
 const allFaculty = [
   departmentChair,
@@ -29,6 +35,18 @@ export default function FacultyProfile() {
     (member) => member.id === id
   );
 
+  const development = faculty
+    ? getProfessionalDevelopment(faculty.id)
+    : {};
+
+  const researchItems = faculty
+    ? getFacultyResearch(faculty.id)
+    : [];
+
+  const publicationItems = faculty
+    ? getPublications(faculty.id)
+    : [];
+
   if (!faculty) {
     return (
       <main className="flex min-h-screen items-center justify-center px-6">
@@ -42,11 +60,34 @@ export default function FacultyProfile() {
             exist.
           </p>
 
-         
-            <Link to="/">
-              <ArrowLeft className="mr-2 h-4 w-4" />
+          <div className="mt-6">
+            <Link
+              to="/"
+              className="
+                group inline-flex items-center gap-2
+                rounded-full border
+                bg-background/80
+                px-4 py-2
+                text-sm font-medium
+                text-muted-foreground
+                shadow-sm
+                backdrop-blur
+                transition-all duration-200
+                hover:bg-muted
+                hover:text-foreground
+                hover:shadow-md
+              "
+            >
+              <ArrowLeft
+                className="
+                  h-4 w-4
+                  transition-transform duration-200
+                  group-hover:-translate-x-1
+                "
+              />
               Back to Faculty
             </Link>
+          </div>
         </div>
       </main>
     );
@@ -57,6 +98,7 @@ export default function FacultyProfile() {
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b">
+
         {/* Grid */}
         <div
           className="
@@ -70,11 +112,34 @@ export default function FacultyProfile() {
         <div className="relative mx-auto max-w-6xl px-6 py-12 sm:py-20">
 
           {/* Back */}
-        
-            <Link to="/">
-              <ArrowLeft className="mr-2 h-4 w-4" />
+          <div className="mb-10">
+            <Link
+              to="/"
+              className="
+                group inline-flex items-center gap-2
+                rounded-full border
+                bg-background/80
+                px-4 py-2
+                text-sm font-medium
+                text-muted-foreground
+                shadow-sm
+                backdrop-blur
+                transition-all duration-200
+                hover:bg-muted
+                hover:text-foreground
+                hover:shadow-md
+              "
+            >
+              <ArrowLeft
+                className="
+                  h-4 w-4
+                  transition-transform duration-200
+                  group-hover:-translate-x-1
+                "
+              />
               Back to Faculty
             </Link>
+          </div>
 
           <div className="grid items-center gap-10 md:grid-cols-[260px_1fr]">
 
@@ -202,7 +267,7 @@ export default function FacultyProfile() {
             </section>
           )}
 
-          {/* Research */}
+          {/* Research Interests */}
           {faculty.researchInterests?.length > 0 && (
             <section>
               <SectionHeading
@@ -224,9 +289,247 @@ export default function FacultyProfile() {
             </section>
           )}
 
+          {/* Research */}
+          {researchItems.length > 0 && (
+            <section className="lg:col-span-2">
+              <SectionHeading
+                icon={FlaskConical}
+                title="Research"
+              />
+
+              <div className="grid gap-4 md:grid-cols-2">
+                {researchItems.map((item, index) => (
+                  <div
+                    key={`${item.title}-${index}`}
+                    className="
+                      rounded-2xl
+                      border
+                      bg-muted/20
+                      p-5
+                      transition-all
+                      duration-200
+                      hover:bg-muted/40
+                      hover:shadow-sm
+                    "
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="font-semibold leading-6">
+                        {item.title}
+                      </h3>
+
+                      {item.year && (
+                        <Badge variant="outline">
+                          {item.year}
+                        </Badge>
+                      )}
+                    </div>
+
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {item.type && (
+                        <Badge variant="secondary">
+                          {item.type}
+                        </Badge>
+                      )}
+
+                      {item.status && (
+                        <Badge variant="outline">
+                          {item.status}
+                        </Badge>
+                      )}
+                    </div>
+
+                    {item.description && (
+                      <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                        {item.description}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Publications */}
+          {publicationItems.length > 0 && (
+            <section className="lg:col-span-2">
+              <SectionHeading
+                icon={FileText}
+                title="Publications"
+              />
+
+              <div className="space-y-4">
+                {publicationItems.map((item, index) => (
+                  <div
+                    key={`${item.title}-${index}`}
+                    className="
+                      rounded-2xl
+                      border
+                      bg-muted/20
+                      p-5
+                      transition-all
+                      duration-200
+                      hover:bg-muted/40
+                      hover:shadow-sm
+                    "
+                  >
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="
+                          flex h-10 w-10 shrink-0
+                          items-center justify-center
+                          rounded-xl
+                          bg-primary/10
+                        "
+                      >
+                        <FileText className="h-5 w-5 text-primary" />
+                      </div>
+
+                      <div className="min-w-0 flex-1">
+                        <h3 className="font-semibold leading-6">
+                          {item.title}
+                        </h3>
+
+                        {item.authors?.length > 0 && (
+                          <p className="mt-2 text-sm text-muted-foreground">
+                            {item.authors.join(", ")}
+                          </p>
+                        )}
+
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {item.year && (
+                            <Badge variant="secondary">
+                              {item.year}
+                            </Badge>
+                          )}
+
+                          {item.type && (
+                            <Badge variant="outline">
+                              {item.type}
+                            </Badge>
+                          )}
+                        </div>
+
+                        {item.journal && (
+                          <p className="mt-3 text-sm text-muted-foreground">
+                            {item.journal}
+                          </p>
+                        )}
+
+                        {(item.url || item.doi) && (
+                          <div className="mt-4 flex flex-wrap gap-3">
+                            {item.url && (
+                              <a
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="
+                                  text-sm
+                                  font-medium
+                                  text-primary
+                                  hover:underline
+                                "
+                              >
+                                View Publication →
+                              </a>
+                            )}
+
+                            {item.doi && (
+                              <a
+                                href={item.doi}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="
+                                  text-sm
+                                  font-medium
+                                  text-primary
+                                  hover:underline
+                                "
+                              >
+                                DOI →
+                              </a>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Professional Development */}
+          {Object.keys(development).length > 0 && (
+            <section className="lg:col-span-2">
+              <SectionHeading
+                icon={BriefcaseBusiness}
+                title="Professional Development"
+              />
+
+              <div className="relative ml-3 border-l">
+                {Object.entries(development).map(
+                  ([year, activities]) => (
+                    <div
+                      key={year}
+                      className="relative pb-10 pl-8 last:pb-0"
+                    >
+                      {/* Timeline dot */}
+                      <div
+                        className="
+                          absolute -left-[9px] top-1
+                          h-4 w-4
+                          rounded-full
+                          border-4
+                          border-background
+                          bg-primary
+                        "
+                      />
+
+                      {/* Year */}
+                      <div className="mb-4 flex items-center gap-3">
+                        <span className="text-xl font-bold">
+                          {year}
+                        </span>
+
+                        {year === "2026" && (
+                          <Badge variant="secondary">
+                            Current
+                          </Badge>
+                        )}
+                      </div>
+
+                      {/* Activities */}
+                      <div className="space-y-3">
+                        {activities.map(
+                          (activity, index) => (
+                            <div
+                              key={index}
+                              className="
+                                rounded-xl
+                                border
+                                bg-muted/20
+                                p-4
+                                text-sm
+                                leading-6
+                                text-muted-foreground
+                                transition-colors
+                                hover:bg-muted/40
+                              "
+                            >
+                              {activity}
+                            </div>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  )
+                )}
+              </div>
+            </section>
+          )}
+
         </div>
       </section>
-
     </main>
   );
 }

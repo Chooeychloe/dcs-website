@@ -1,7 +1,7 @@
 // src/data/faculty.js
 
 export const departmentChair = {
-  id: "chair",
+  id: "jovelyn-ocampo",
   name: "Jovelyn D. Ocampo, MIT",
   position: "Department Chair",
   image: "/faculty/ocampo.jpg",
@@ -17,7 +17,7 @@ export const departmentChair = {
   ],
 
   education: [
-    "Doctor in Information Technology",
+    "Doctor in Information Technology [Units]",
     "Master of Information Technology",
   ],
 
@@ -32,12 +32,12 @@ export const departmentChair = {
     "Educational Technology",
   ],
 
-  email: "chair@example.edu.ph",
+  email: "jovelyn.ocampo@cvsu.edu.ph",
 };
 
 export const coordinators = [
   {
-    id: "cs-coordinator",
+    id: "ely-rose-panganiban-briones",
     name: "Ely Rose Panganiban-Briones, MIT",
     position: "CS Coordinator",
     program: "Computer Science",
@@ -69,7 +69,7 @@ export const coordinators = [
   },
 
   {
-    id: "bsit-coordinator",
+    id: "donnalyn-montallana",
     name: "Donnalyn B. Montallana, MIT",
     position: "BSIT Coordinator",
     program: "Information Technology",
@@ -101,7 +101,7 @@ export const coordinators = [
   },
 
   {
-    id: "osas-coordinator",
+    id: "steffanie-bato",
     name: "Steffanie M. Bato, MIT",
     position: "OSAS Coordinator",
     program: "Office of Student Affairs and Services",
@@ -131,7 +131,7 @@ export const coordinators = [
 
 export const facultyMembers = [
   {
-    id: "faculty-1",
+    id: "bryan-ablaza",
     name: "Bryan Ablaza",
     position: "Instructor I",
     image: "/faculty/ablaza.png",
@@ -162,7 +162,7 @@ export const facultyMembers = [
   },
 
   {
-    id: "faculty-2",
+    id: "mikaela-arciaga",
     name: "Mikaela Arciaga",
     position: "Instructor I",
     image: "/faculty/arciaga.JPG",
@@ -193,7 +193,7 @@ export const facultyMembers = [
   },
 
   {
-    id: "faculty-3",
+    id: "john-nerick-batuigas",
     name: "John Nerick Batuigas",
     position: "Instructor I",
     image: "/faculty/batuigas.jpg",
@@ -224,7 +224,7 @@ export const facultyMembers = [
   },
 
   {
-    id: "faculty-4",
+    id: "stephen-bacolor",
     name: "Stephen Bacolor",
     position: "Instructor I",
     image: "/faculty/bacolor.JPG",
