@@ -26,7 +26,7 @@ export default function HeroSection() {
         "
       />
 
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-40">
+      <div className="mx-auto max-w-7xl px-6 py-10 sm:py-10 lg:py-10">
         <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
 
           {/* Content */}
