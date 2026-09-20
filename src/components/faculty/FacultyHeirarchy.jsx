@@ -4,7 +4,7 @@ import ChairCard from "./ChairCard";
 import CoordinatorSection from "./CoordinatorSection";
 import FacultyMembersSection from "./FacultyMembersSection";
 import FacultyProfileDialog from "./FacultyProfileDialog";
-
+import { FlippingWordSwap } from "@/components/ui/flipping-word-swap"
 import {
   departmentChair,
   coordinators,
@@ -47,21 +47,38 @@ export default function FacultyHierarchy() {
       <div className="relative mx-auto max-w-7xl px-6">
 
         {/* Header */}
-        <div className="mx-auto mb-16 max-w-2xl text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.25em] text-primary">
-            Department of Computer Studies
-          </p>
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+  <p className="mb-3 text-sm font-medium uppercase tracking-[0.25em] text-primary">
+    Department of Computer Studies
+  </p>
 
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Meet Our Faculty
-          </h2>
+  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+    Meet Our
+   
+  </h2>
+  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+    <FlippingWordSwap
+      word1="Faculty"
+      word2="Educators"
+      word3="Mentors"
+      duration={500}
+      stagger={35}
+      className="text-primary"
+      toClassName="text-primary"
+      style={{
+        fontSize: "inherit",
+        fontWeight: "inherit",
+        lineHeight: "inherit",
+        letterSpacing: "inherit",
+      }}
+    />
+  </h2>
 
-          <p className="mt-4 text-muted-foreground">
-            The people behind the programs, instruction,
-            research, and student development of the department.
-          </p>
-        </div>
-
+  <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+    The people behind the programs, instruction, research, and student
+    development of the department.
+  </p>
+</div>
         {/* Department Chair */}
         <ChairCard
           chair={departmentChair}

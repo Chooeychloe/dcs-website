@@ -11,6 +11,7 @@ import SiteLayout from "@/components/layout/SiteLayout";
 import Faculty from "./pages/Faculty";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
+import Research from "./pages/Research";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
           <Route
             path="/programs"
             element={<Programs />}
+          />
+            <Route
+            path="/research"
+            element={<Research />}
           />
         </Routes>
       </SiteLayout>

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { HoverTransition } from "@/components/ui/hover-transition";
 
 export default function FacultyCard({
   faculty,
@@ -51,46 +52,67 @@ export default function FacultyCard({
               ${featured ? "aspect-4/3" : "aspect-4/5"}
             `}
           >
-            <img
-              src={faculty.image}
-              alt={faculty.name}
-              className="
-                h-full w-full object-cover
-                transition-transform duration-700
-                group-hover:scale-105
-              "
-            />
+            <HoverTransition
+              effect="diagonal"
+              direction="bottom"
+              duration={0.65}
+              className="h-full w-full"
+              defaultComponent={
+                <div className="relative h-full w-full">
+                  <img
+                    src={faculty.image}
+                    alt={faculty.name}
+                    className="h-full w-full object-cover"
+                  />
 
-            {/* Image gradient */}
-            <div
-              className="
-                absolute inset-0
-                bg-linear-to-t
-                from-black/70 via-black/10 to-transparent
-              "
-            />
+                  {/* Image gradient */}
+                  <div
+                    className="
+                      absolute inset-0
+                      bg-linear-to-t
+                      from-black/70 via-black/10 to-transparent
+                    "
+                  />
+                </div>
+              }
+              hoverComponent={
+                <div className="relative h-full w-full">
+                  <img
+                    src={faculty.image}
+                    alt={faculty.name}
+                    className="h-full w-full object-cover scale-105"
+                  />
 
-            {/* View profile */}
-            <div
-              className="
-    absolute bottom-4 right-4
-    flex items-center gap-1.5
-    rounded-full
-    bg-background/90
-    px-3 py-1.5
-    text-xs font-medium
-    text-foreground
-    opacity-0
-    translate-y-2
-    backdrop-blur-sm
-    transition-all duration-300
-    group-hover:opacity-100
-    group-hover:translate-y-0
-  "
-            >
-              View Profile
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </div>
+                  {/* Hover gradient */}
+                  <div
+                    className="
+                      absolute inset-0
+                      bg-linear-to-t
+                      from-primary/70
+                      via-black/20
+                      to-transparent
+                    "
+                  />
+
+                  {/* View profile */}
+                  <div
+                    className="
+                      absolute bottom-4 right-4
+                      flex items-center gap-1.5
+                      rounded-full
+                      bg-background/90
+                      px-3 py-1.5
+                      text-xs font-medium
+                      text-foreground
+                      backdrop-blur-sm
+                    "
+                  >
+                    View Profile
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </div>
+                </div>
+              }
+            />
           </div>
 
           {/* Information */}
