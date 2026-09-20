@@ -2,23 +2,16 @@ import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import FacultyProfileHero from "@/components/faculty/FacultyProfileHero";
-import FacultySectionNavigator from "@/components/faculty/FacultySectionNavigator";
+import FacultyProfileHero from "@/components/faculty/faculty_profile/FacultyProfileHero";
+import FacultySectionNavigator from "@/components/faculty/faculty_profile/FacultySectionNavigator";
+import FacultySectionContent from "@/components/faculty/faculty_profile/FacultySectionContent";
 
-import FacultySpecialization from "@/components/faculty/FacultySpecialization";
-import FacultySkills from "@/components/faculty/FacultySkills";
-import FacultySubjects from "@/components/faculty/FacultySubjects";
-import FacultyResearchInterests from "@/components/faculty/FacultyResearchInterests";
+import FacultySpecialization from "@/components/faculty/faculty_profile/FacultySpecialization";
+import FacultySkills from "@/components/faculty/faculty_profile/FacultySkills";
+import FacultySubjects from "@/components/faculty/faculty_profile/FacultySubjects";
+import FacultyResearchInterests from "@/components/faculty/faculty_profile/FacultyResearchInterests";
 
-import FacultyEducation from "@/components/faculty/FacultyEducation";
-import FacultyExperience from "@/components/faculty/FacultyExperience";
-import FacultyResearch from "@/components/faculty/FacultyResearch";
-import FacultyPublications from "@/components/faculty/FacultyPublications";
-import FacultyCertifications from "@/components/faculty/FacultyCertifications";
-import FacultyAwards from "@/components/faculty/FacultyAwards";
-import FacultyAffiliations from "@/components/faculty/FacultyAffiliations";
-import FacultyExtension from "@/components/faculty/FacultyExtension";
-import FacultyDevelopment from "@/components/faculty/FacultyDevelopment";
+import { facultySectionConfig } from "@/config/facultySectionConfig";
 
 import {
   departmentChair,
@@ -65,13 +58,26 @@ export default function FacultyProfile() {
   const awardItems = getAwards(faculty.id);
   const affiliationItems = getAffiliations(faculty.id);
   const extensionItems = getFacultyExtension(faculty.id);
-  const developmentItems = getProfessionalDevelopment(faculty.id);
+  const developmentItems =
+    getProfessionalDevelopment(faculty.id);
   const researchItems = getFacultyResearch(faculty.id);
   const publicationItems = getPublications(faculty.id);
 
+  // Data used by the dynamic section renderer
+  const sectionData = {
+    education: educationItems,
+    experience: experienceItems,
+    research: researchItems,
+    publications: publicationItems,
+    certifications: certificationItems,
+    awards: awardItems,
+    affiliations: affiliationItems,
+    extension: extensionItems,
+    development: developmentItems,
+  };
+
   return (
     <main className="min-h-screen bg-background">
-      {/* Profile Header */}
       <FacultyProfileHero faculty={faculty} />
 
       <section className="mx-auto max-w-6xl px-6 py-16">
@@ -103,61 +109,23 @@ export default function FacultyProfile() {
           />
 
           {/* Selected Section */}
-          <section>
-            {activeSection === "education" && (
-              <FacultyEducation
-                items={educationItems}
-              />
-            )}
+          <FacultySectionContent
+            activeSection={activeSection}
+          >
+            {(section) => {
+              const config =
+                facultySectionConfig[section];
 
-            {activeSection === "experience" && (
-              <FacultyExperience
-                items={experienceItems}
-              />
-            )}
+              if (!config) {
+                return null;
+              }
 
-            {activeSection === "research" && (
-              <FacultyResearch
-                items={researchItems}
-              />
-            )}
+              const Component = config.component;
+              const items = config.getItems(sectionData);
 
-            {activeSection === "publications" && (
-              <FacultyPublications
-                items={publicationItems}
-              />
-            )}
-
-            {activeSection === "certifications" && (
-              <FacultyCertifications
-                items={certificationItems}
-              />
-            )}
-
-            {activeSection === "awards" && (
-              <FacultyAwards
-                items={awardItems}
-              />
-            )}
-
-            {activeSection === "affiliations" && (
-              <FacultyAffiliations
-                items={affiliationItems}
-              />
-            )}
-
-            {activeSection === "extension" && (
-              <FacultyExtension
-                items={extensionItems}
-              />
-            )}
-
-            {activeSection === "development" && (
-              <FacultyDevelopment
-                items={developmentItems}
-              />
-            )}
-          </section>
+              return <Component items={items} />;
+            }}
+          </FacultySectionContent>
 
         </div>
       </section>

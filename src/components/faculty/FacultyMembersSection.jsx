@@ -1,4 +1,4 @@
-import FacultyCard from "./FacultyCard";
+import FacultyCard from "./faculty_profile/FacultyCard";
 
 export default function FacultyMembersSection({
   facultyMembers,
