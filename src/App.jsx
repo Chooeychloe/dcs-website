@@ -6,7 +6,7 @@ import {
 
 import Home from "@/pages/Home";
 import FacultyProfile from "@/pages/FacultyProfile";
-
+import ProgramDetails from "@/pages/ProgramDetails";
 import SiteLayout from "@/components/layout/SiteLayout";
 import Faculty from "./pages/Faculty";
 import Programs from "./pages/Programs";
@@ -43,6 +43,10 @@ function App() {
           />
           <Route path="/extension" element={<Extension />} />
           <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/programs/:programId"
+            element={<ProgramDetails />}
+          />
         </Routes>
       </SiteLayout>
     </BrowserRouter>
