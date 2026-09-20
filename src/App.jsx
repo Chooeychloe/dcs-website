@@ -12,7 +12,8 @@ import Faculty from "./pages/Faculty";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
 import Research from "./pages/Research";
-
+import Extension from "@/pages/Extension";
+import Contact from "@/pages/Contact";
 function App() {
   return (
     <BrowserRouter>
@@ -36,10 +37,12 @@ function App() {
             path="/programs"
             element={<Programs />}
           />
-            <Route
+          <Route
             path="/research"
             element={<Research />}
           />
+          <Route path="/extension" element={<Extension />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </SiteLayout>
     </BrowserRouter>
