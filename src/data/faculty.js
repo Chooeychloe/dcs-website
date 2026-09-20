@@ -16,11 +16,6 @@ export const departmentChair = {
     "Information Technology",
   ],
 
-  education: [
-    "Doctor in Information Technology [Units]",
-    "Master of Information Technology",
-  ],
-
   subjects: [
     "Advanced Database Management",
     "Information Technology",
@@ -51,10 +46,6 @@ export const coordinators = [
       "Artificial Intelligence",
     ],
 
-    education: [
-      "Master of Computer Science",
-    ],
-
     subjects: [
       "Data Structures and Algorithms",
       "Software Engineering",
@@ -81,10 +72,6 @@ export const coordinators = [
     specialization: [
       "Web Development",
       "Database Systems",
-    ],
-
-    education: [
-      "Master of Information Technology",
     ],
 
     subjects: [
@@ -114,10 +101,6 @@ export const coordinators = [
       "Student Development",
     ],
 
-    education: [
-      "Master's Degree",
-    ],
-
     subjects: [],
 
     researchInterests: [
@@ -142,10 +125,6 @@ export const facultyMembers = [
     specialization: [
       "Web Development",
       "Database Systems",
-    ],
-
-    education: [
-      "Master of Information Technology",
     ],
 
     subjects: [
@@ -175,10 +154,6 @@ export const facultyMembers = [
       "Software Engineering",
     ],
 
-    education: [
-      "Master of Computer Science",
-    ],
-
     subjects: [
       "Programming",
       "Software Engineering",
@@ -206,10 +181,6 @@ export const facultyMembers = [
       "Cybersecurity",
     ],
 
-    education: [
-      "Master's Degree",
-    ],
-
     subjects: [
       "Computer Networks",
       "Information Security",
@@ -235,10 +206,6 @@ export const facultyMembers = [
     specialization: [
       "Data Science",
       "Artificial Intelligence",
-    ],
-
-    education: [
-      "Master of Computer Science",
     ],
 
     subjects: [
