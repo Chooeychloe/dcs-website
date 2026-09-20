@@ -46,22 +46,46 @@ export default function FacultyProfile() {
     (member) => member.id === id
   );
 
-  if (!faculty) {
-    return <FacultyNotFound />;
-  }
-
   // Faculty data
-  const educationItems = getEducation(faculty.id);
-  const experienceItems = getExperience(faculty.id);
-  const skillsItems = getSkills(faculty.id);
-  const certificationItems = getCertifications(faculty.id);
-  const awardItems = getAwards(faculty.id);
-  const affiliationItems = getAffiliations(faculty.id);
-  const extensionItems = getFacultyExtension(faculty.id);
-  const developmentItems =
-    getProfessionalDevelopment(faculty.id);
-  const researchItems = getFacultyResearch(faculty.id);
-  const publicationItems = getPublications(faculty.id);
+  const educationItems = faculty
+    ? getEducation(faculty.id)
+    : [];
+
+  const experienceItems = faculty
+    ? getExperience(faculty.id)
+    : [];
+
+  const skillsItems = faculty
+    ? getSkills(faculty.id)
+    : [];
+
+  const certificationItems = faculty
+    ? getCertifications(faculty.id)
+    : [];
+
+  const awardItems = faculty
+    ? getAwards(faculty.id)
+    : [];
+
+  const affiliationItems = faculty
+    ? getAffiliations(faculty.id)
+    : [];
+
+  const extensionItems = faculty
+    ? getFacultyExtension(faculty.id)
+    : [];
+
+  const developmentItems = faculty
+    ? getProfessionalDevelopment(faculty.id)
+    : {};
+
+  const researchItems = faculty
+    ? getFacultyResearch(faculty.id)
+    : [];
+
+  const publicationItems = faculty
+    ? getPublications(faculty.id)
+    : [];
 
   // Data used by the dynamic section renderer
   const sectionData = {
@@ -75,6 +99,36 @@ export default function FacultyProfile() {
     extension: extensionItems,
     development: developmentItems,
   };
+
+  // Only show sections that actually contain data
+  const availableSections = Object.entries(sectionData)
+    .filter(([, items]) => {
+      if (!items) {
+        return false;
+      }
+
+      if (Array.isArray(items)) {
+        return items.length > 0;
+      }
+
+      if (typeof items === "object") {
+        return Object.keys(items).length > 0;
+      }
+
+      return false;
+    })
+    .map(([section]) => section);
+
+  // Use the selected section when available.
+  // Otherwise, fall back to the first available section.
+  const currentSection = availableSections.includes(activeSection)
+    ? activeSection
+    : availableSections[0];
+
+  // Handle invalid faculty ID
+  if (!faculty) {
+    return <FacultyNotFound />;
+  }
 
   return (
     <main className="min-h-screen bg-background">
@@ -104,13 +158,14 @@ export default function FacultyProfile() {
 
           {/* Section Navigator */}
           <FacultySectionNavigator
-            activeSection={activeSection}
+            activeSection={currentSection}
             onSelect={setActiveSection}
+            availableSections={availableSections}
           />
 
           {/* Selected Section */}
           <FacultySectionContent
-            activeSection={activeSection}
+            activeSection={currentSection}
           >
             {(section) => {
               const config =

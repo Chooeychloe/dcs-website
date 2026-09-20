@@ -6,6 +6,7 @@ export default function FacultySectionContent({
 }) {
   const [visibleSection, setVisibleSection] =
     useState(activeSection);
+
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -13,12 +14,14 @@ export default function FacultySectionContent({
       return;
     }
 
-    setIsVisible(false);
-
     const timeout = setTimeout(() => {
-      setVisibleSection(activeSection);
-      setIsVisible(true);
-    }, 150);
+      setIsVisible(false);
+
+      setTimeout(() => {
+        setVisibleSection(activeSection);
+        setIsVisible(true);
+      }, 150);
+    }, 0);
 
     return () => clearTimeout(timeout);
   }, [activeSection, visibleSection]);

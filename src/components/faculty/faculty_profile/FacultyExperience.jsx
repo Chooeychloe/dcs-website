@@ -1,21 +1,18 @@
 import { BriefcaseBusiness } from "lucide-react";
-
 import { Badge } from "@/components/ui/badge";
 
+import FacultySectionHeader from "./FacultySectionHeader";
+
 export default function FacultyExperience({ items }) {
-  if (!items?.length) {
-    return null;
-  }
+  if (!items?.length) return null;
 
   return (
-    <section className="lg:col-span-2">
-      <div className="mb-5 flex items-center gap-2">
-        <BriefcaseBusiness className="h-5 w-5 text-primary" />
-
-        <h2 className="text-lg font-semibold">
-          Professional Experience
-        </h2>
-      </div>
+    <section>
+      <FacultySectionHeader
+        icon={BriefcaseBusiness}
+        title="Professional Experience"
+        description="Professional roles, responsibilities, and experience."
+      />
 
       <div className="relative ml-3 border-l">
         {items.map((item, index) => (
@@ -23,18 +20,11 @@ export default function FacultyExperience({ items }) {
             key={`${item.position}-${index}`}
             className="relative pb-8 pl-8 last:pb-0"
           >
-            <div
-              className="
-                absolute -left-[9px] top-1
-                h-4 w-4
-                rounded-full
-                border-4
-                border-background
-                bg-primary
-              "
-            />
+            {/* Timeline dot */}
+            <div className="absolute -left-2.25 top-1 h-4 w-4 rounded-full border-4 border-background bg-primary" />
 
-            <div className="rounded-2xl border bg-muted/20 p-5">
+            {/* Experience card */}
+            <div className="rounded-2xl border bg-muted/20 p-5 transition-all duration-200 hover:bg-muted/40 hover:shadow-sm">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h3 className="font-semibold">

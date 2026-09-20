@@ -1,35 +1,34 @@
 import { FlaskConical } from "lucide-react";
-
 import { Badge } from "@/components/ui/badge";
 
+import FacultySectionHeader from "./FacultySectionHeader";
+
 export default function FacultyResearch({ items }) {
-  if (!items?.length) {
-    return null;
-  }
+  if (!items?.length) return null;
 
   return (
-    <section className="lg:col-span-2">
-      <div className="mb-5 flex items-center gap-2">
-        <FlaskConical className="h-5 w-5 text-primary" />
-
-        <h2 className="text-lg font-semibold">
-          Research
-        </h2>
-      </div>
+    <section>
+      <FacultySectionHeader
+        icon={FlaskConical}
+        title="Research"
+        description="Research projects, areas of study, and ongoing academic activities."
+      />
 
       <div className="grid gap-4 md:grid-cols-2">
         {items.map((item, index) => (
           <div
             key={`${item.title}-${index}`}
             className="
+              group
               rounded-2xl
               border
               bg-muted/20
               p-5
               transition-all
-              duration-200
+              duration-300
+              hover:-translate-y-0.5
               hover:bg-muted/40
-              hover:shadow-sm
+              hover:shadow-md
             "
           >
             <div className="flex items-start justify-between gap-4">

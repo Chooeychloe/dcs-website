@@ -1,32 +1,24 @@
 import { GraduationCap } from "lucide-react";
-
 import { Badge } from "@/components/ui/badge";
 
+import FacultySectionHeader from "./FacultySectionHeader";
+
 export default function FacultyEducation({ items }) {
-  if (!items?.length) {
-    return null;
-  }
+  if (!items?.length) return null;
 
   return (
     <section>
-      <div className="mb-5 flex items-center gap-2">
-        <GraduationCap className="h-5 w-5 text-primary" />
-
-        <h2 className="text-lg font-semibold">
-          Educational Background
-        </h2>
-      </div>
+      <FacultySectionHeader
+        icon={GraduationCap}
+        title="Educational Background"
+        description="Academic degrees and educational qualifications."
+      />
 
       <div className="space-y-3">
         {items.map((item, index) => (
           <div
             key={`${item.degree}-${index}`}
-            className="
-              rounded-xl
-              border
-              bg-muted/20
-              p-4
-            "
+            className="rounded-2xl border bg-muted/20 p-5 transition-all duration-200 hover:bg-muted/40 hover:shadow-sm"
           >
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>

@@ -27,7 +27,7 @@ export default function Research() {
           className="
             pointer-events-none absolute inset-0 -z-10
             bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)]
-            bg-[size:48px_48px]
+            bg-size-[48px_48px]
             opacity-35
           "
         />
@@ -36,7 +36,7 @@ export default function Research() {
         <div
           className="
             pointer-events-none absolute left-1/2 top-0 -z-10
-            h-[500px] w-[800px]
+            h-125 w-200
             -translate-x-1/2
             rounded-full
             bg-primary/10

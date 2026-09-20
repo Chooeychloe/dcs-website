@@ -1,69 +1,91 @@
-import { HeartHandshake } from "lucide-react";
-
+import {  HeartHandshake } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+import FacultySectionHeader from "./FacultySectionHeader";
+
 export default function FacultyExtension({ items }) {
-  if (!items?.length) {
-    return null;
-  }
+  if (!items?.length) return null;
 
   return (
-    <section className="lg:col-span-2">
-      <div className="mb-5 flex items-center gap-2">
-        <HeartHandshake className="h-5 w-5 text-primary" />
-
-        <h2 className="text-lg font-semibold">
-          Extension & Community Engagement
-        </h2>
-      </div>
+    <section>
+      <FacultySectionHeader
+        icon={HeartHandshake}
+        title="Extension & Community Engagement"
+        description="Extension programs, community projects, and outreach activities."
+      />
 
       <div className="grid gap-4 md:grid-cols-2">
         {items.map((item, index) => (
-          <div
+          <article
             key={`${item.title}-${index}`}
             className="
+              group
               rounded-2xl
               border
               bg-muted/20
               p-5
               transition-all
-              duration-200
+              duration-300
+              hover:-translate-y-0.5
               hover:bg-muted/40
-              hover:shadow-sm
+              hover:shadow-md
             "
           >
             <div className="flex items-start justify-between gap-4">
-              <h3 className="font-semibold leading-6">
-                {item.title}
-              </h3>
+              <div
+                className="
+                  flex
+                  h-11
+                  w-11
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-primary/10
+                  text-primary
+                  transition-colors
+                  duration-300
+                  group-hover:bg-primary
+                  group-hover:text-primary-foreground
+                "
+              >
+                <HeartHandshake className="h-5 w-5" />
+              </div>
 
               {item.year && (
-                <Badge variant="outline">
+                <Badge variant="secondary">
                   {item.year}
                 </Badge>
               )}
             </div>
 
-            {item.role && (
-              <div className="mt-3">
-                <Badge variant="secondary">
+            <div className="mt-5">
+              <h3 className="font-semibold leading-6">
+                {item.title}
+              </h3>
+
+              {item.organization && (
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {item.organization}
+                </p>
+              )}
+
+              {item.role && (
+                <Badge
+                  variant="outline"
+                  className="mt-3"
+                >
                   {item.role}
                 </Badge>
-              </div>
-            )}
+              )}
 
-            {item.organization && (
-              <p className="mt-3 text-sm font-medium">
-                {item.organization}
-              </p>
-            )}
-
-            {item.description && (
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                {item.description}
-              </p>
-            )}
-          </div>
+              {item.description && (
+                <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                  {item.description}
+                </p>
+              )}
+            </div>
+          </article>
         ))}
       </div>
     </section>

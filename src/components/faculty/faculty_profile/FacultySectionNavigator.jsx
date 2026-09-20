@@ -80,7 +80,20 @@ const sections = [
 export default function FacultySectionNavigator({
   activeSection,
   onSelect,
+  availableSections = [],
 }) {
+  const visibleSections = sections.filter((section) =>
+    availableSections.includes(section.id)
+  );
+
+  if (!visibleSections.length) {
+    return null;
+  }
+
+  const activeIndex = visibleSections.findIndex(
+    (section) => section.id === activeSection
+  );
+
   return (
     <section>
       {/* Header */}
@@ -102,18 +115,18 @@ export default function FacultySectionNavigator({
 
         <div className="hidden text-right text-xs text-muted-foreground sm:block">
           <span className="font-medium text-foreground">
-            {sections.findIndex(
-              (section) => section.id === activeSection
-            ) + 1}
+            {activeIndex >= 0 ? activeIndex + 1 : 1}
           </span>
+
           <span className="mx-1">/</span>
-          {sections.length}
+
+          {visibleSections.length}
         </div>
       </div>
 
       {/* Section Cards */}
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {sections.map((section) => {
+        {visibleSections.map((section) => {
           const Icon = section.icon;
           const isActive = activeSection === section.id;
 
@@ -135,7 +148,7 @@ export default function FacultySectionNavigator({
 
                 ${
                   isActive
-                    ? "border-primary bg-primary/[0.06] shadow-md"
+                    ? "border-primary bg-primary/6 shadow-md"
                     : "bg-background hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
                 }
               `}
@@ -177,7 +190,7 @@ export default function FacultySectionNavigator({
                     transition-all duration-300
                     ${
                       isActive
-                        ? "translate-x-0 -translate-y-0 text-primary opacity-100"
+                        ? "translate-x-0 translate-y-0 text-primary opacity-100"
                         : "translate-x-1 translate-y-1 text-muted-foreground opacity-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
                     }
                   `}
