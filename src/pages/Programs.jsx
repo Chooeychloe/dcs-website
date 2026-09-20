@@ -241,19 +241,48 @@ export default function Programs() {
             their academic journey.
           </p>
 
-          
-            <Link to="/faculty">
-              Meet Our Faculty
 
-              <ArrowRight
-                className="
-                  ml-2 h-4 w-4
-                  transition-transform
-                  group-hover:translate-x-1
-                "
-              />
-            </Link>
-       
+          <Link
+            to="/faculty"
+            className="
+    group
+    mt-8
+    inline-flex
+    h-11
+    items-center
+    justify-center
+    rounded-lg
+    bg-primary
+    px-5
+    text-sm
+    font-semibold
+    text-primary-foreground
+    shadow-sm
+    transition-all
+    duration-200
+    hover:-translate-y-0.5
+    hover:bg-primary/90
+    hover:shadow-md
+    focus-visible:outline-none
+    focus-visible:ring-2
+    focus-visible:ring-primary
+    focus-visible:ring-offset-2
+  "
+          >
+            Meet Our Faculty
+
+            <ArrowRight
+              className="
+      ml-2
+      h-4 w-4
+      transition-transform
+      duration-200
+      group-hover:translate-x-1
+    "
+            />
+          </Link>
+
+
 
         </div>
       </section>
