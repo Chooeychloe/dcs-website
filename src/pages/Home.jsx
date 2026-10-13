@@ -1,4 +1,3 @@
-import FacultyHierarchy from "@/components/faculty/FacultyHeirarchy";
 import HeroSection from "@/components/home/HeroSection";
 
 ;

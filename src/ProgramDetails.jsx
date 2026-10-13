@@ -115,7 +115,7 @@ export default function ProgramDetails() {
               </Badge>
 
               <span className="text-sm text-muted-foreground">
-                Four-Year Program
+                Curriculum overview
               </span>
             </div>
 

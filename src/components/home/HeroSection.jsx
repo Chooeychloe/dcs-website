@@ -1,4 +1,4 @@
-import { ArrowRight, Code2, Cpu, Database } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function HeroSection() {
@@ -26,7 +26,7 @@ export default function HeroSection() {
         "
       />
 
-      <div className="mx-auto max-w-7xl px-6 py-10 sm:py-10 lg:py-10">
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-24">
         <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
 
           {/* Content */}
@@ -71,10 +71,9 @@ export default function HeroSection() {
                 sm:text-lg
               "
             >
-              Empowering students with the knowledge, skills,
-              and experiences needed to build meaningful
-              solutions through computer science and
-              information technology.
+              Explore Computer Science and Information Technology at the
+              Department of Computer Studies, and discover the faculty,
+              research, and community work behind our programs.
             </p>
 
             {/* Actions */}
@@ -141,85 +140,28 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            {/* Stats */}
-            <div
-              className="
-                mt-12 grid max-w-xl grid-cols-3
-                gap-6
-                border-t border-border
-                pt-8
-              "
-            >
-              <Stat value="2" label="Programs" />
-              <Stat value="20+" label="Faculty" />
-              <Stat value="1000+" label="Students" />
-            </div>
           </div>
 
           {/* Visual */}
           <div className="relative mx-auto w-full max-w-lg">
-            {/* Main card */}
-            <div
-              className="
-                relative aspect-square
-                overflow-hidden
-                rounded-3xl
-                border border-border
-                bg-card/80
-                shadow-2xl
-                backdrop-blur-sm
-              "
-            >
-              {/* Inner grid */}
-              <div
-                className="
-                  absolute inset-0
-                  bg-[linear-gradient(to_right,var(--primary)_1px,transparent_1px),linear-gradient(to_bottom,var(--primary)_1px,transparent_1px)]
-                  bg-size-[32px_32px]
-                  opacity-[0.08]
-                "
-              />
-
-              {/* Center content */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  {/* Glow */}
-                  <div
-                    className="
-                      absolute inset-0
-                      rounded-full
-                      bg-primary/20
-                      blur-3xl
-                    "
-                  />
-
-                  {/* Logo */}
-                  <img
-                    src="/dcs-logo.svg"
-                    alt="Department of Computer Studies"
-                    className="relative h-auto w-auto"
-                  />
+            <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-xl">
+              <a href="https://cvsu.edu.ph/bacoor/" target="_blank" rel="noreferrer" aria-label="View the CvSU Bacoor City Campus website">
+                <img
+                  src="https://cvsu.edu.ph/wp-content/uploads/2022/08/Bacoor-Campus-scaled.jpg"
+                  alt="Cavite State University Bacoor City Campus, where the Department of Computer Studies is based"
+                  className="aspect-[4/3] w-full object-cover"
+                  fetchPriority="high"
+                />
+              </a>
+              <div className="p-7 sm:p-9">
+                <div className="flex items-center gap-3">
+                  <img src="/dcs-logo.svg" alt="Department of Computer Studies logo" className="h-12 w-12 shrink-0 object-contain" />
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Department of Computer Studies<br />CvSU Bacoor City Campus</p>
                 </div>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">The Department of Computer Studies is part of Cavite State University – Bacoor City Campus.</p>
+                <a href="https://cvsu.edu.ph/bacoor/" target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center text-xs font-medium text-muted-foreground underline-offset-4 hover:text-primary hover:underline">CvSU Bacoor campus information <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+                  </a>
               </div>
-
-              {/* Floating cards */}
-              <TechCard
-                icon={Code2}
-                label="Software"
-                className="left-5 top-5"
-              />
-
-              <TechCard
-                icon={Database}
-                label="Data"
-                className="bottom-5 left-5"
-              />
-
-              <TechCard
-                icon={Cpu}
-                label="Technology"
-                className="right-1.5 top-1/2 -translate-y-1/2"
-              />
             </div>
           </div>
         </div>
@@ -228,42 +170,3 @@ export default function HeroSection() {
   );
 }
 
-function Stat({ value, label }) {
-  return (
-    <div>
-      <p className="text-2xl font-bold tracking-tight">
-        {value}
-      </p>
-
-      <p className="mt-1 text-xs text-muted-foreground">
-        {label}
-      </p>
-    </div>
-  );
-}
-
-function TechCard({
-  icon: Icon,
-  label,
-  className,
-}) {
-  return (
-    <div
-      className={`
-        absolute
-        flex items-center gap-2
-        rounded-xl
-        border border-border
-        bg-background/90
-        px-3 py-2
-        text-xs font-medium
-        shadow-lg
-        backdrop-blur
-        ${className}
-      `}
-    >
-      <Icon className="h-4 w-4 text-primary" />
-      {label}
-    </div>
-  );
-}

@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 
 function getInitialTheme() {
-  const savedTheme = localStorage.getItem("theme");
+  let savedTheme = null;
+  try {
+    savedTheme = localStorage.getItem("theme");
+  } catch {
+    // Storage may be unavailable in restricted browsing contexts.
+  }
 
   if (savedTheme) {
     return savedTheme === "dark";
@@ -22,10 +27,11 @@ export default function ThemeToggle() {
     setDark((currentDark) => {
       const nextDark = !currentDark;
 
-      localStorage.setItem(
-        "theme",
-        nextDark ? "dark" : "light"
-      );
+      try {
+        localStorage.setItem("theme", nextDark ? "dark" : "light");
+      } catch {
+        // The current page theme still changes if storage is unavailable.
+      }
 
       return nextDark;
     });

@@ -56,7 +56,6 @@ export const coordinators = [
       "Software Engineering",
     ],
 
-    email: "cs@example.edu.ph",
   },
 
   {
@@ -84,7 +83,6 @@ export const coordinators = [
       "Database Systems",
     ],
 
-    email: "bsit@example.edu.ph",
   },
 
   {
@@ -108,7 +106,6 @@ export const coordinators = [
       "Student Services",
     ],
 
-    email: "osas@example.edu.ph",
   },
 ];
 
@@ -137,7 +134,6 @@ export const facultyMembers = [
       "Database Systems",
     ],
 
-    email: "faculty1@example.edu.ph",
   },
 
   {
@@ -164,7 +160,6 @@ export const facultyMembers = [
       "Application Development",
     ],
 
-    email: "faculty2@example.edu.ph",
   },
 
   {
@@ -191,7 +186,6 @@ export const facultyMembers = [
       "Network Security",
     ],
 
-    email: "faculty3@example.edu.ph",
   },
 
   {
@@ -218,6 +212,5 @@ export const facultyMembers = [
       "Artificial Intelligence",
     ],
 
-    email: "faculty4@example.edu.ph",
   },
 ];

@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,12 +10,13 @@ export default function FacultyCard({
   featured = false,
   onClick,
 }) {
+  const reduceMotion = useReducedMotion();
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      whileHover={{ y: -8 }}
+      whileHover={reduceMotion ? undefined : { y: -8 }}
       transition={{
         duration: 0.4,
         ease: "easeOut",
@@ -24,9 +25,18 @@ export default function FacultyCard({
     >
       <Card
         onClick={() => onClick?.(faculty)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            onClick?.(faculty);
+          }
+        }}
         className={`
           group relative h-full cursor-pointer overflow-hidden
           border-border/50 bg-card
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
           transition-all duration-500
           hover:border-primary/40
           hover:shadow-2xl hover:shadow-primary/10

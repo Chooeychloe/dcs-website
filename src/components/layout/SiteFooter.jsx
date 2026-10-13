@@ -42,14 +42,15 @@ export default function SiteFooter() {
               </p>
 
               <p className="mt-0.5 text-[11px] text-muted-foreground">
-                Computer Science & Information Technology
+                Cavite State University · Bacoor City Campus
               </p>
             </div>
           </Link>
 
           <p className="mt-4 max-w-md text-sm leading-5 text-muted-foreground">
-            Developing future-ready computing professionals through
-            instruction, research, innovation, and community engagement.
+            The Department of Computer Studies at CvSU Bacoor offers Computer
+            Science and Information Technology programs, supported by teaching,
+            research, and community engagement.
           </p>
         </div>
 
@@ -59,7 +60,7 @@ export default function SiteFooter() {
             Quick Links
           </h3>
 
-          <nav className="mt-3 grid grid-cols-2 gap-x-8 gap-y-2">
+          <nav aria-label="Footer navigation" className="mt-3 grid grid-cols-2 gap-x-8 gap-y-2">
             {quickLinks.map((item) => (
               <Link
                 key={item.href}

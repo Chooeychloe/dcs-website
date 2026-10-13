@@ -1,48 +1,24 @@
-import {
-  Mail,
-  MapPin,
-  Phone,
-} from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { FaFacebookF } from "react-icons/fa";
+
 export const contactInfo = [
   {
-    title: "Email",
-    value: "dcs@example.edu.ph",
-    description: "For academic and departmental inquiries",
-    icon: Mail,
-    href: "mailto:dcs@example.edu.ph",
-  },
-  {
-    title: "Phone",
-    value: "+63 XXX XXX XXXX",
-    description: "Department office",
+    title: "Campus phone",
+    value: "(046) 476-5029",
+    description: "CvSU Bacoor City Campus main line",
     icon: Phone,
-    href: "tel:+63XXXXXXXXXX",
+    href: "tel:+63464765029",
   },
   {
-    title: "Office",
-    value: "Department of Computer Studies",
-    description: "CvSU – Bacoor City Campus",
+    title: "Campus location",
+    value: "Soldiers Hills IV, Molino VI, Bacoor City, Cavite",
+    description: "Cavite State University – Bacoor City Campus",
     icon: MapPin,
     href: "https://maps.app.goo.gl/fffkFCMjaYhPNn9LA",
   },
 ];
 
-export const officeHours = [
-  {
-    day: "Monday – Thursday",
-    hours: "7:00 AM – 6:00 PM",
-  },
-
-  {
-    day: "Friday - Saturday",
-    hours: "Instructor's Office Hours Only",
-  },
-  {
-    day: "Sunday",
-    hours: "Closed",
-  },
-];
+export const officeHours = [];
 
 export const socialLinks = [
   {

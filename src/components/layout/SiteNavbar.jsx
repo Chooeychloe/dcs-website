@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import ThemeToggle from "./ThemeToggle";
 import { Button } from "@/components/ui/button";
@@ -37,7 +37,19 @@ const navigation = [
 ];
 
 export default function SiteNavbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const { pathname } = useLocation();
+  const [mobileMenu, setMobileMenu] = useState({ pathname, open: false });
+  const mobileOpen = mobileMenu.pathname === pathname && mobileMenu.open;
+  const setMobileOpen = (open) => setMobileMenu({ pathname, open });
+
+  useEffect(() => {
+    if (!mobileOpen) return undefined;
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setMobileMenu({ pathname, open: false });
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [mobileOpen, pathname]);
 
   return (
     <header
@@ -67,13 +79,13 @@ export default function SiteNavbar() {
             </p>
 
             <p className="mt-1 text-[11px] text-muted-foreground">
-              Computer Science & Information Technology
+              Cavite State University · Bacoor City Campus
             </p>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="ml-auto hidden items-center gap-1 lg:flex">
+        <nav aria-label="Primary navigation" className="ml-auto hidden items-center gap-1 lg:flex">
           {navigation.map((item) => (
             <NavLink
               key={item.href}
@@ -109,8 +121,9 @@ export default function SiteNavbar() {
             variant="ghost"
             size="icon"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle navigation"
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileOpen ? (
               <X className="h-5 w-5" />
@@ -124,7 +137,7 @@ export default function SiteNavbar() {
       {/* Mobile Navigation */}
       {mobileOpen && (
         <div className="border-t border-border/50 lg:hidden">
-          <nav className="mx-auto max-w-7xl space-y-1 px-6 py-4">
+          <nav id="mobile-navigation" aria-label="Mobile navigation" className="mx-auto max-w-7xl space-y-1 px-6 py-4">
             {navigation.map((item) => (
               <NavLink
                 key={item.href}

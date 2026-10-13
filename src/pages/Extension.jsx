@@ -159,13 +159,12 @@ export default function Extension() {
             </h2>
 
             <p className="mt-4 text-muted-foreground">
-              This section can showcase the department's actual extension
-              programs, training activities, outreach initiatives, and
-              community partnerships.
+              Approved department outreach activities will be listed here
+              with their dates, partners, and outcomes.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {extensionPrograms.length ? <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {extensionPrograms.map((program) => (
               <Card
                 key={program.id}
@@ -204,7 +203,7 @@ export default function Extension() {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </div> : <p className="mt-8 rounded-xl border border-dashed border-border bg-background/60 px-6 py-10 text-center text-sm text-muted-foreground">No featured extension activities are published yet.</p>}
         </div>
       </section>
 

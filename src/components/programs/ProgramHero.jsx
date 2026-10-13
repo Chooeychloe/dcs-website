@@ -1,5 +1,5 @@
 
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
@@ -66,9 +66,7 @@ export default function ProgramHero({ program }) {
               {program.code}
             </Badge>
 
-            <span className="text-sm text-muted-foreground">
-              Four-Year Program
-            </span>
+            <span className="text-sm text-muted-foreground">Official program information</span>
           </div>
 
           <h1
@@ -91,6 +89,12 @@ export default function ProgramHero({ program }) {
           >
             {program.shortDescription}
           </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a href="https://cvsu.edu.ph/bacoor/" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center rounded-lg border border-border px-4 text-sm font-semibold text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+              CvSU Bacoor campus information <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+            <Link to="/contact" className="inline-flex min-h-11 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary/90">Contact DCS</Link>
+          </div>
         </div>
       </div>
     </section>

@@ -46,32 +46,4 @@ export const researchAreas = [
   },
 ];
 
-export const researchProjects = [
-  {
-    id: 1,
-    title: "Research Project Title",
-    type: "Faculty Research",
-    status: "Ongoing",
-    description:
-      "Replace this placeholder with an actual department research project, including a short summary of its objectives and contribution.",
-    link: null,
-  },
-  {
-    id: 2,
-    title: "Research or Thesis Title",
-    type: "Student Research",
-    status: "Completed",
-    description:
-      "Replace this placeholder with an approved student thesis, capstone, or research output.",
-    link: null,
-  },
-  {
-    id: 3,
-    title: "Research Collaboration",
-    type: "Collaborative Research",
-    status: "Ongoing",
-    description:
-      "Use this section for collaborative work involving faculty members, students, partner institutions, or other organizations.",
-    link: null,
-  },
-];
+export const researchProjects = [];

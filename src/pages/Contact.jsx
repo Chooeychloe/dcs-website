@@ -3,19 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  
-} from "@/components/ui/card";
-import {
-  Clock3
-} from "lucide-react";
-import {
-  contactInfo,
-  officeHours,
-  socialLinks,
-} from "@/data/contact";
+import { contactInfo, socialLinks } from "@/data/contact";
 
 export default function Contact() {
   return (
@@ -77,6 +65,7 @@ export default function Contact() {
               Have a question about our programs, faculty, research,
               extension activities, or other departmental concerns?
               Get in touch with the Department of Computer Studies.
+              The phone number and address below are for the CvSU Bacoor campus.
             </p>
           </div>
         </div>
@@ -84,7 +73,7 @@ export default function Contact() {
 
       {/* Contact Information */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-24">
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2">
           {contactInfo.map((item) => {
             const Icon = item.icon;
 
@@ -153,6 +142,16 @@ export default function Contact() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-6 pb-20">
+        <a href="https://cvsu.edu.ph/bacoor/" target="_blank" rel="noreferrer" className="group flex flex-col gap-3 rounded-2xl border border-primary/20 bg-primary/5 p-6 transition-colors hover:bg-primary/10 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <span>
+            <span className="block text-sm font-semibold text-primary">Official campus information</span>
+            <span className="mt-1 block text-sm text-muted-foreground">For campus-wide information and admissions guidance, visit the official CvSU Bacoor website.</span>
+          </span>
+          <span className="shrink-0 text-sm font-semibold text-primary">Visit CvSU Bacoor</span>
+        </a>
+      </section>
+
       {/* Office / Social */}
       <section className="border-y bg-muted/30">
         <div
@@ -161,65 +160,12 @@ export default function Contact() {
             gap-10
             px-6 py-20
             sm:py-24
-            lg:grid-cols-[1.2fr_0.8fr]
+            lg:grid-cols-1
           "
         >
           {/* Office Hours */}
-          <div>
-            <div className="flex items-center gap-3">
-              <div
-                className="
-                  flex h-10 w-10
-                  items-center justify-center
-                  rounded-xl
-                  bg-primary/10
-                  text-primary
-                "
-              >
-                <Clock3 className="h-5 w-5" />
-              </div>
-
-              <div>
-                <p className="text-sm font-semibold text-primary">
-                  Office Hours
-                </p>
-
-                <h2 className="text-2xl font-bold tracking-tight">
-                  When you can reach us
-                </h2>
-              </div>
-            </div>
-
-            <Card className="mt-6 border-border/70">
-              <CardContent className="p-0">
-                {officeHours.map((schedule, index) => (
-                  <div
-                    key={schedule.day}
-                    className={`
-                      flex items-center justify-between gap-6
-                      px-6 py-4
-                      ${
-                        index !== officeHours.length - 1
-                          ? "border-b border-border"
-                          : ""
-                      }
-                    `}
-                  >
-                    <span className="text-sm font-medium">
-                      {schedule.day}
-                    </span>
-
-                    <span className="text-sm text-muted-foreground">
-                      {schedule.hours}
-                    </span>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          </div>
-
           {/* Social */}
-          <div>
+          <div className="mx-auto w-full max-w-2xl">
             <p className="text-sm font-semibold text-primary">
               Stay Connected
             </p>

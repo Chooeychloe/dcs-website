@@ -46,32 +46,4 @@ export const extensionAreas = [
   },
 ];
 
-export const extensionPrograms = [
-  {
-    id: 1,
-    title: "Community Digital Literacy Program",
-    category: "Training",
-    description:
-      "Placeholder for a department-led activity designed to strengthen practical digital skills among community participants.",
-    beneficiaries: "Community Participants",
-    status: "Planned",
-  },
-  {
-    id: 2,
-    title: "Technology Skills Workshop",
-    category: "Workshop",
-    description:
-      "Placeholder for a hands-on workshop covering selected computing technologies, tools, or applications.",
-    beneficiaries: "Students / Community",
-    status: "Planned",
-  },
-  {
-    id: 3,
-    title: "ICT Support & Community Engagement",
-    category: "Technical Service",
-    description:
-      "Placeholder for a technical assistance or community engagement activity involving computing-related services.",
-    beneficiaries: "Partner Organizations",
-    status: "Planned",
-  },
-];
+export const extensionPrograms = [];

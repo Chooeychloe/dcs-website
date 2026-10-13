@@ -123,15 +123,14 @@ export default function About() {
                 </h3>
 
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                  Cavite State University – Bacoor City Campus
+                  A department of Cavite State University – Bacoor City Campus
                 </p>
 
                 <div className="mt-8 h-px bg-border" />
 
                 <p className="mt-6 text-sm leading-6 text-muted-foreground">
-                  This section can later include the department's official
-                  history, establishment information, and other institutional
-                  details.
+                  Visit the university's official campus page for current
+                  campus information and its list of courses.
                 </p>
               </div>
             </CardContent>
@@ -139,51 +138,55 @@ export default function About() {
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* Institutional context */}
       <section className="border-y border-border/60 bg-muted/30">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-              Direction
+              Our Campus
             </p>
 
             <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-              Vision & Mission
+              Part of CvSU Bacoor
             </h2>
 
             <p className="mt-4 text-muted-foreground">
-              Official institutional statements can be placed here to ensure
-              that the website reflects the department's approved wording.
+              The Department of Computer Studies is part of Cavite State
+              University – Bacoor City Campus. This site focuses on the
+              department; campus-wide information is maintained by CvSU.
             </p>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {/* Vision */}
+            {/* Official campus link */}
             <Card className="border-border/60 bg-background">
               <CardContent className="p-8">
                 <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Target className="h-5 w-5" />
                 </div>
 
-                <h3 className="mt-6 text-xl font-semibold">Vision</h3>
+                <h3 className="mt-6 text-xl font-semibold">Campus information</h3>
 
                 <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                  Official DCS/CvSU vision statement goes here.
+                  Find campus-wide information and the official list of courses
+                  on the CvSU Bacoor website.
                 </p>
+                <a href="https://cvsu.edu.ph/bacoor/" target="_blank" rel="noreferrer" className="mt-5 inline-flex text-sm font-semibold text-primary hover:underline">Visit CvSU Bacoor</a>
               </CardContent>
             </Card>
 
-            {/* Mission */}
+            {/* Department focus */}
             <Card className="border-border/60 bg-background">
               <CardContent className="p-8">
                 <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Lightbulb className="h-5 w-5" />
                 </div>
 
-                <h3 className="mt-6 text-xl font-semibold">Mission</h3>
+                <h3 className="mt-6 text-xl font-semibold">Department focus</h3>
 
                 <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                  Official DCS/CvSU mission statement goes here.
+                  Explore DCS programs, faculty, research, extension activities,
+                  and department contact information using the links on this site.
                 </p>
               </CardContent>
             </Card>

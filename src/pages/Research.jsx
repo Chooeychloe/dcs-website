@@ -155,9 +155,8 @@ export default function Research() {
               </h2>
 
               <p className="mt-4 text-muted-foreground">
-                This section can showcase approved faculty research, student
-                theses, capstone studies, publications, and collaborative
-                projects.
+              Featured work will appear here when approved project records
+              are available.
               </p>
             </div>
 
@@ -184,7 +183,7 @@ export default function Research() {
             </Link>
           </div>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {researchProjects.length ? <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {researchProjects.map((project) => (
               <Card
                 key={project.id}
@@ -246,7 +245,7 @@ export default function Research() {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </div> : <p className="mt-8 rounded-xl border border-dashed border-border bg-background/60 px-6 py-10 text-center text-sm text-muted-foreground">No featured research projects are published yet. Check back for approved faculty and student work.</p>}
         </div>
       </section>
 

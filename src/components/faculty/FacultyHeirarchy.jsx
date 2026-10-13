@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { Search } from "lucide-react";
 
 import ChairCard from "./ChairCard";
 import CoordinatorSection from "./CoordinatorSection";
 import FacultyMembersSection from "./FacultyMembersSection";
 import FacultyProfileDialog from "./FacultyProfileDialog";
-import { FlippingWordSwap } from "@/components/ui/flipping-word-swap"
 import {
   departmentChair,
   coordinators,
@@ -13,6 +13,14 @@ import {
 
 export default function FacultyHierarchy() {
   const [selectedFaculty, setSelectedFaculty] = useState(null);
+  const [query, setQuery] = useState("");
+  const allFaculty = useMemo(() => [departmentChair, ...coordinators, ...facultyMembers], []);
+  const filteredFaculty = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+    if (!normalized) return allFaculty;
+    return allFaculty.filter((person) => [person.name, person.position, person.program, ...(person.specialization ?? [])]
+      .filter(Boolean).join(" ").toLowerCase().includes(normalized));
+  }, [allFaculty, query]);
 
   const handleFacultyClick = (faculty) => {
     setSelectedFaculty(faculty);
@@ -52,33 +60,25 @@ export default function FacultyHierarchy() {
     Department of Computer Studies
   </p>
 
-  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-    Meet Our
-   
-  </h2>
-  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-    <FlippingWordSwap
-      word1="Faculty"
-      word2="Educators"
-      word3="Mentors"
-      duration={500}
-      stagger={35}
-      className="text-primary"
-      toClassName="text-primary"
-      style={{
-        fontSize: "inherit",
-        fontWeight: "inherit",
-        lineHeight: "inherit",
-        letterSpacing: "inherit",
-      }}
-    />
-  </h2>
+  <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+    Faculty & Coordinators
+  </h1>
 
   <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
     The people behind the programs, instruction, research, and student
     development of the department.
   </p>
 </div>
+        <label className="mx-auto mb-10 flex max-w-2xl items-center gap-3 rounded-xl border border-border bg-background px-4 focus-within:ring-2 focus-within:ring-primary">
+          <Search className="h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+          <span className="sr-only">Search faculty by name, role, program, or specialization</span>
+          <input value={query} onChange={(event) => setQuery(event.target.value)} type="search" className="min-h-12 w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground" placeholder="Search name, role, program, or specialization" />
+        </label>
+
+        {query.trim() ? <>
+          <p className="mb-6 text-sm text-muted-foreground" aria-live="polite">{filteredFaculty.length} matching {filteredFaculty.length === 1 ? "person" : "people"}</p>
+          {filteredFaculty.length ? <FacultyMembersSection facultyMembers={filteredFaculty} onClick={handleFacultyClick} /> : <p className="rounded-xl border border-dashed border-border px-6 py-10 text-center text-sm text-muted-foreground">No faculty match that search. Try a name, program, or specialization.</p>}
+        </> : <>
         {/* Department Chair */}
         <ChairCard
           chair={departmentChair}
@@ -96,6 +96,7 @@ export default function FacultyHierarchy() {
           facultyMembers={facultyMembers}
           onClick={handleFacultyClick}
         />
+        </>}
 
       </div>
 

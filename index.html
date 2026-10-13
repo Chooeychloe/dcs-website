@@ -1,10 +1,20 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/dcs-logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Department of Computer Studies</title>
+    <meta name="description" content="Explore academic programs, faculty, research, and community extension at the Department of Computer Studies, CvSU Bacoor City Campus." />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
